@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Tic Tac Toe</title>
+	  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700;800&#038;display=swap"
+      rel="stylesheet"
+    />
+	<style>
+	*{
+	  color:#fff;
+	  font-family: "Work Sans", sans-serif;
+	}
+	.game{
+	  width: 255px;
+	  text-align: center;
+	  color: white;
+	  margin: auto;
+	  margin-top: 100px;
+	}
+	.title{
+	  background: blueviolet;
+	  padding: 5px 0;
+	  margin: 5px 0;
+	}
+	span{
+	  color: #119;
+	}
+	body{
+	  background: #112;
+	}
+	.square{
+	  height: 80px;
+	  background: blueviolet;
+	  width: 80px;
+	  float: left;
+	  margin: 2px;
+	  font-size: 50px;
+	}
+	.square:hover{
+	  background: #119;
+	  cursor: pointer;
+	}
+	</style>
+</head>
+<body 
+ <h2>Score: <span class="score">0</span></h2>
+<div class="game">
+  
+  <div class="title"><span>XO</span> GAME</div>
+  <div class="square" id="item1" onclick="game(this.id)"></div>
+  <div class="square" id="item2" onclick="game(this.id)"></div>
+  <div class="square" id="item3" onclick="game(this.id)"></div>
+  
+  
+  <div class="square" id="item4" onclick="game(this.id)"></div>
+  <div class="square" id="item5" onclick="game(this.id)"></div>
+  <div class="square" id="item6" onclick="game(this.id)"></div>
+  
+  
+  <div class="square" id="item7" onclick="game(this.id)"></div>
+  <div class="square" id="item8" onclick="game(this.id)"></div>
+  <div class="square" id="item9" onclick="game(this.id)"></div>
+</div>
+<script>
+var score = 0;
+var scoreElement = document.querySelector(".score");
+let title = document.querySelector('.title');
+let turn = 'x';
+let squares = [];
+
+function end(num1,num2,num3){
+  title.innerHTML = `${squares[num1]} winner`;
+  document.getElementById('item'+num1).style.background='#119';
+  document.getElementById('item'+num2).style.background='#119';
+  document.getElementById('item'+num3).style.background='#119';
+  setInterval(function(){title.innerHTML+='.',1000});
+  setTimeout(function(){location.reload()},40)
+}
+
+function updateScore() {
+  score++;
+  scoreElement.textContent = score;
+}
+
+function winner(){
+  for(let i = 1;i<10;i++){
+   squares[i] = document.getElementById('item'+i).innerHTML;
+  }
+  
+  if(squares[1]== squares[2] && squares[2] == squares[3] && squares[1] != ''){
+    updateScore();
+    end(1,2,3)
+  }else if(squares[4]== squares[5] && squares[5] == squares[6] && squares[5] != ''){
+    updateScore();
+    end(4,5,6)
+    
+  }else if(squares[7]== squares[8] && squares[8] == squares[9] && squares[8] != ''){
+    end(7,8,9);
+    updateScore()
+  }else if(squares[1]== squares[4] && squares[4] == squares[7] && squares[1] != ''){
+    updateScore();
+    end(1,4,7)
+  }else if(squares[2]== squares[5] && squares[5] == squares[8] && squares[5] != ''){
+    updateScore();
+    end(2,5,8)
+  }else if(squares[3]== squares[6] && squares[6] == squares[9] && squares[6] != ''){
+    updateScore();
+    end(3,6,9)
+  }else if(squares[1]== squares[5] && squares[5] == squares[9] && squares[1] != ''){
+    updateScore();
+    end(1,5,9)
+    
+  }else if(squares[3]== squares[5] && squares[5] == squares[7] && squares[5] != ''){
+    updateScore();
+    end(3,5,7)
+  }
+}
+
+function game(id){
+  let element = document.getElementById(id);
+  if(turn === 'x' && element.innerHTML == ''){
+    element.innerHTML = 'x';
+    turn = 'o';
+    title.innerHTML = 'o';
+  }else if(turn === 'o' && element.innerHTML == ''){
+    element.innerHTML ='o';
+    turn='x';
+    title.innerHTML='x';
+  }
+  winner();
+}
+
+// get the current score from local storage if it exists
+score = localStorage.getItem('score') || 0;
+scoreElement.textContent = score;
+
+// update the score in local storage whenever it changes
+function updateScoreAndSave() {
+  updateScore();
+  localStorage.setItem('score', score);
+}
+
+</script>
+</body>
+</html>

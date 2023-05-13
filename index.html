@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GamesStation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700;800&#038;display=swap"
+      rel="stylesheet"/>
+  <style>
+    *{
+    font-family: "Work Sans", sans-serif;
+      padding: 0;
+      margin: 0;
+      color: #fff;
+      text-decoration: none;
+     font-weight: 400;
+    }
+    body{
+      background: #112;
+    }
+    header{
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+    span{
+      color: red;
+    }
+    a{
+      transition: 1s;
+    }
+    a:hover{
+      text-decoration: underline;
+      color: red;
+    }
+    @media(max-width:900px){
+      header a{
+        font-size: 13px
+      } header h2{
+        font-size: 20px;
+      }
+      .landing{
+        height: 60px;
+        background-size: 100%;
+      }
+      .landing h1{
+        font-size: 20px;
+
+      }
+      .landing img{
+        width: 400px;
+      }
+      .cont img{
+        display: none;
+      }
+    }
+    .landing {
+      background-image: url(landing.jpg);
+      background-size: cover;
+      height: 650px;
+    }
+    
+    .cont{
+      align-items: center;
+      display: flex;
+    }
+    	 
+   .book-list {
+	   display: flex;
+	   flex-wrap: wrap;
+	   margin-left: 15%;
+}
+.book-item {
+  transition: 0.50s;
+	width: 250px;
+	height: 350px;
+	margin: 10px;
+	padding: 10px;
+	background-color: #222;
+	border-radius: 5px;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+.book-item:hover {
+	transform: translateY(-10px);
+}
+.book-item img {
+	width: 100%;
+	height: 250px;
+	object-fit: cover;
+	border-radius: 5px;
+}
+.book-item h2 {
+	margin: 10px 0 5px 0;
+	font-size: 1.2rem;
+	color: blueviolet;
+}
+.book-item p {
+	margin: 0;
+	font-size: 1rem;
+	color: #555;
+}
+.book-item {
+  transition: 0.50s;
+	width: 250px;
+	height: 400px;
+	margin: 10px;
+	padding: 10px;
+	background-color: #113;
+	border-radius: 5px;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+.book-item:hover {
+	transform: scale(1.1);
+}
+.book-item img {
+	width: 100%;
+	height: 270px;
+	border-radius: 5px
+}
+.book-item h2 {
+	margin: 10px 0 5px 0;
+	font-size: 1.2rem;
+	color: red;
+}
+.book-item p {
+	margin: 0;
+	font-size: 1rem;
+	color: #555;
+}
+button{
+  background: none;
+  color: red;
+  border: 1px red solid;
+  border-radius: 5px;
+  padding: 5px 5px;
+}
+button:hover{
+  color: white;
+  background: red;
+}
+  </style>
+</head>
+<body>
+  <br>
+  <header>
+    <h2><span>Games</span>Station</h2>
+    <a href="#">Home</a>
+    <a href="#about">About us</a>
+    <a href="#games">Our Games</a>
+  </header>
+  <br>
+  <hr>
+<div class="landing">
+  <center>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  <h1>Welcome To <span>Gaming</span> station!</h1>
+  </center>
+</div>
+<br>
+<center>
+  <h1 class="left"><span>A</span>bout us</h1>
+</center>
+<div class="cont">
+  <img src="gamer-playing-online-game-4549379-3767124.png" alt="">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut nihil vel impedit, fuga quis eum ipsum, illum molestiae placeat, eligendi dicta doloremque amet facere voluptates. Beatae, consequatur reiciendis dolor necessitatibus.</p>
+</div>
+<br>
+<br>
+<center>
+  <h1><span>O</span>ur Games</h1>
+</center>
+<br><br>
+	<div class="book-list" align="center">
+		<div class="book-item">
+			<img src="Screenshot_20230513-003809_Spck Editor.jpg">
+			<h2>Cars Game</h2>
+		<a href="game2.html"><button>Play Now</button></a>
+		</div>
+
+		<div class="book-item">
+			<img src="Screenshot_20230513-003752_Spck Editor.jpg">
+			<h2>Tic-Tac-Toe Game</h2>
+      	<a href="game2.html"><button>Play Now</button></a>
+			</div>
+  </div>
+</body>
+</html>
